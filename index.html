@@ -14,32 +14,328 @@
     <header class="title">
       <h1>MySQL</h1>
     </header>
+
     <ul class="lista">
-      <li><a class="nav-link" href="#">Introduccion</a></li>
-      <li><a class="nav-link" href="#">Conocimientos previos</a></li>
-      <li><a class="nav-link" href="#">Crear y eliminar bases de Datos</a></li>
-      <li><a class="nav-link" href="#">Crear, modificar y eliminar tablas</a></li>
-      <li><a class="nav-link" href="#">Tipos de datos</a></li>
-      <li><a class="nav-link" href="#">Insertar, modificar y eliminar registros en una tabla</a></li>
-      <li><a class="nav-link" href="#">Recuperación de algunos campos</a></li>
-      <li><a class="nav-link" href="#">Recuperación de registros específicos </a></li>
-      <li><a class="nav-link" href="#">Clave primaria y Clave foránea </a></li>
-      <li><a class="nav-link" href="#">Columnas calculadas </a></li>
-      <li><a class="nav-link" href="#">Funciones matematicas </a></li>
-      <li><a class="nav-link" href="#">Funciones para el uso de fecha y hora </a></li>
-      <li><a class="nav-link" href="#">Operadores logicos y relacionales </a></li>
-      <li><a class="nav-link" href="#">Funciones de agrupamiento </a></li>
-      <li><a class="nav-link" href="#">Consultas de varias tablas </a></li>
+      <li><a class="nav-link" href="#Introduccion">Introduccion</a></li>
+      <li><a class="nav-link" href="#Conocimientos_previos">Conocimientos previos</a></li>
+      <li><a class="nav-link" href="#Crear_y_eliminar_bases_de_datos">Crear y eliminar bases de datos</a></li>
+      <li><a class="nav-link" href="#Crear_modificar_y_eliminar_tablas">Crear modificar y eliminar tablas</a></li>
+      <li><a class="nav-link" href="#Tipos_de_datos">Tipos de datos</a></li>
+      <li><a class="nav-link" href="#Insertar_modificar_y_eliminar_registros_en_una_tabla">Insertar modificar y
+          eliminar registros en una tabla</a></li>
+      <li><a class="nav-link" href="#Clave_primaria_y_clave_foranea">Clave primaria y clave foranea</a></li>
+      <li><a class="nav-link" href="#Columnas_calculadas">Columnas calculadas</a></li>
+      <li><a class="nav-link" href="#Clausula_ORDER_del_SELECT">Clausula ORDER del SELECT</a></li>
+      <li><a class="nav-link" href="#Operadores_logicos_y_relacionales">Operadores logicos y relacionales</a></li>
+      
     </ul>
   </nav>
   <main id="main-doc">
-    <section class="main-section" id="Introduccion">
-      <header>
-        <h1>Introduccion</h1>
-      </header>
-     
-    </section>
-    
+    <div class="scroll-bar-box">
+      <section class="main-section" id="Introduccion">
+        <header class="title-section">Introduccion</header>
+        <div>
+          <p>
+            MySQL es un sistema de administración de bases de datos (Database Management System, DBMS) para bases de
+            datos relacionales open source. Se sustenta en SQL: Structure Query Language (Lenguaje de Consulta
+            Estructurado).
+          </p>
+          <p>
+            MySQL utiliza múltiples tablas para almacenar y organizar la información. Fue escrito en C y C++ y destaca
+            por
+            su gran adaptación a diferentes entornos de desarrollo, permitiendo la interacción con los lenguajes de
+            programación de más uso como PHP, Perl y Java; así como, su integración en distintos sistemas operativos.
+          </p>
+        </div>
+      </section>
+      <section class="main-section" id="Conocimientos_previos">
+        <header class="title-section">Conocimientos previos</header>
+        <div>
+          <p>
+            Para comenzar a trabajar con una base de datos debes conocer su definición: Una base de datos es un gran
+            contenedor de información almacenada de forma organizada.
+            Los datos estan organizados de forma tal que no exista redundacia y se puedan establecer relaciones entre
+            ellos.
+          </p>
+          <p>
+            La base de datos contiene las tablas identificadas con un nombre único donde se uardarán los datos, los
+            cuales también son identificados de forma única.
+          </p>
+
+        </div>
+      </section>
+      <section class="main-section" id="Crear_y_eliminar_bases_de_datos">
+        <header class="title-section">Crear y eliminar bases de datos</header>
+        <div>
+          <h3>Crear bases de datos</h3>
+          <p>
+            Para crear una base de datos a través de sentencias de SQL, se utiliza la siguiente sintaxis:
+          </p>
+          <p class="query">
+            <code>CREATE DATABASE farmacia;</code>
+          </p>
+          <p>
+            Con la sentencia anterior, se ha creado una base de datos denominada <strong>farmacia</strong>. Es
+            importante señalar que las palabras “CREATE” y “DATABASE” están
+            escritas en mayúsculas, visto que corresponden a palabras reservadas de SQL y deben diferenciar de las
+            palabras utilizadas para nombrar el resto de los elementos. Al finalizar cada instrucción debe escribirse
+            “;” con lo cual se garantiza el fin de la instrucción.
+          </p>
+        </div>
+        <div>
+          <h3>Eliminar bases de datos</h3>
+          <p>
+            Para eliminar una base de datos se utiliza la instrucción DROP. Por ejemplo, para eliminar la base de datos
+            creada en el punto anterior, ejecutamos la siguiente sentencia:
+          </p>
+          <p class="query">
+            <code>DROP DATABASE farmacia;</code>
+          </p>
+        </div>
+      </section>
+      <section class="main-section" id="Crear_modificar_y_eliminar_tablas">
+        <header class="title-section">Crear modificar y eliminar tablas</header>
+        <div>
+          <h3>Crear tabla</h3>
+          <p>
+            Una tabla es una estructura que organiza los datos en columnas y filas, donde cada columna es un campo y
+            cada fila un registro. Cada intersección entre una columna y una fila, contiene un dato específico, es
+            decir, un solo valor.
+          </p>
+          <p>
+            Cada campo debe tener un nombre, el cual debe hacer referencia al tipo de dato que almacena, a los fines de
+            acilitar la interpretación de los datos que contiene la tabla.
+          </p>
+          <div class="table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Nombre del producto</th>
+                  <th>Cantidad disponible</th>
+                  <th>Precio</th>
+                  <th>Codigo</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Ibuprofeno</td>
+                  <td>500</td>
+                  <td>25.40</td>
+                  <td>87963</td>
+                </tr>
+                <tr>
+                  <td>Atamel</td>
+                  <td>700</td>
+                  <td>30.80</td>
+                  <td>58763</td>
+                </tr>
+                <tr>
+                  <td>Naproxeno</td>
+                  <td>1700</td>
+                  <td>50.50</td>
+                  <td>58863</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p> Gráficamente la tabla productos contiene tres campos: nombre del producto, cantidad disponible y precio.
+            Luego tenemos dos registros almacenados en esta tabla:
+          <ul class="list-section">
+            <li> El primer registro contiene para el primer campo (nombre del producto) el valor Ibuprofeno, para el
+              segundo campo (cantidad disponible) 500, el tercer campo (precio) 25.40 y el cuarto (código) 87963 </li>
+            <li> El segundo registro contiene para el primer campo el valor Atamel, para el segundo campo (cantidad
+              disponible) 700, el tercer campo (precio) 30.80 y el cuarto (código) 58763 </li>
+            <li>
+              El tercer registro contiene para el primer campo el valor Naproxeno, para el segundo campo (cantidad
+              disponible) 1700, el tercer campo (precio) 50.50 y el cuarto (código) 58863.
+            </li>
+          </ul>
+          <p> Al crear una tabla debemos resolver qué campos (columnas) tendrá y que tipo de datos almacenarán cada uno
+            de ellos, es decir, su estructura. En ese sentido, para crear la tabla con las características antes
+            descritas, ejecutaremos la siguiente sentencia: </p>
+          <p class="query">
+            <code> CREATE TABLE producto ( <br> nombre_producto VARCHAR (50), <br> cantidad_disponible INT, <br> precio FLOAT <br>, codigo VARCHAR (20)<br> ); </code>
+          </p>
+
+          <h3>Modificar tablas</h3>
+          <p>La instrucción ALTER TABLE permite modificar la estructura de una tabla existente. Mediante esta
+            instrucción podemos agregar o eliminar columnas, modificar el tipo de columna (tipo de dato), renombrar
+            campos y la tabla. Aplicaremos a manera de ejemplo ciertos cambios a la tabla productos.</p>
+
+          <p>Renombrar columna: se cambia el nombre del campo nombre_producto por nm_prod</p>
+          <p class="query">
+            <code> ALTER TABLE producto CHANGE nombre_producto nm_prod VARCHAR (50); </code>
+          </p>
+          <p>Eliminar columna: se elimina el campo codigo</p>
+          <p class="query">
+            <code> ALTER TABLE producto DROP COLUMN codigo;  </code>
+          </p>
+          <p>Agregar una nueva columna</p>
+          <p class="query">
+            <code> ALTER TABLE producto ADD descripcion VARCHAR(100);  </code>
+          </p>
+        </div>
+      </section>
+      <section class="main-section" id="Tipos_de_datos">
+        <header class="title-section">Tipos de datos</header>
+        <div>
+          <p>Como se indicó en puntos anteriores, al crear una tabla es necesario definir su estructura, es decir, los
+            campos (columnas) que tendrá y el tipo de datos almacenará cada uno de ellos. A continuación se listan
+            algunos tipos de datos básicos:</p>
+          <ul class="list-section">
+            <li> <strong>VARCHAR:</strong> se usa para almacenar cadenas de caracteres. Una cadena es una secuencia de
+              caracteres que se colocan entre comillas (simples). Adicionalmente, es necesario definir su longitud con
+              un máximo de 255 caracteres. Por ejemplo, para almacenar cadenas de hasta 10 caracteres, definimos un
+              campo de tipo VARCHAR(10). Si asignamos una cadena de caracteres de mayor longitud que la definida, la
+              cadena se corta. Por ejemplo, si definimos un campo de tipo VARCHAR(10) y le asignamos la cadena 'Buenos
+              dias sra Laura', se almacenará 'Buenos dia'.</li>
+            <li> <strong>INTEGER:</strong> se usa para guardar valores numéricos enteros, de -2000000000 a 2000000000
+              aproximadamente. Se utiliza cuando se requiere almacenar cantidades, número de identificación, otros.</li>
+            <li>
+              <strong>FLOAT:</strong> se utiliza para almacenar valores numéricos con decimales. Como separador de la
+              porción decimal se coloca el punto (.). Definimos campos de este tipo para precios, temperatura, peso,
+              otros.
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section class="main-section" id="Insertar_modificar_y_eliminar_registros_en_una_tabla">
+        <header class="title-section">Insertar modificar y eliminar registros en una tabla</header>
+        <h3>Insertar registros</h3>
+        <p> Un registro es una fila de la tabla que contiene los datos. Cada registro tiene un dato por cada columna. Al
+          insertar registros en una tabla debe tener en cuenta la cantidad y el orden de los campos. Para insertar un
+          registro en la tabla productos deberá aplicar la siguiente sentencia:</p>
+        <p>Recuerde que la tabla productos del ejemplo anterior ha sido modificada, en su actual estructura los campos
+          son: nm_prod, cantidad_disponible, precio y descripcion </p>
+        <p class="query">
+          <code> INSERT INTO producto (nm_prod, cantidad_disponible, precio, descripcion) VALUES <br> ('Pantoprazol',1000, 25.8, protector gastrico); </code>
+        </p>
+        <p> Iniciamos la instrucción con “INSERT INTO” luego especificamos los nombres de los campos entre paréntesis y
+          separados por comas y posteriormente los valores para cada campo (también entre paréntesis y separados por
+          comas).</p>
+        <p>El comando "SELECT" recupera los registros de una tabla. Luego del comando SELECT indicamos los nombres de
+          los campos a recuperar, generando una salida con los registros y los valores que contiene cada registro en
+          cada campo de la tabla.</p>
+        <p class="query">
+          <code> SELECT nm_prod, cantidad_disponible, precio, descripcion  FROM productos; </code>
+        </p>
+        <h3>Modificar registros</h3>
+        <p>Para modificar uno o varios datos de uno o varios registros utilizamos "UPDATE". Por ejemplo, en la tabla
+          productos se requiere modificar el campo descripción para el producto Pantoprazol, para lo cual se ejecutará
+          la siguiente sentencia:</p>
+        <p class="query">
+          <code> UPDATE productos descripcion = 'Protector' WHERE nm_prod = 'Pantoprazol'; </code>
+        </p>
+        <p>Note que se utilizó la instrucción WHERE, de no ser incluida se modificaría la descripción de todos los
+          registros de la tabla</p>
+        <h3>Eliminar registros</h3>
+        <p>Para eliminar los registros de una tabla usamos el comando "DELETE":</p>
+        <p class="query">
+          <code> DELETE FROM productos; </code>
+        </p>
+        <p>Con la sentencia anterior, serán eliminados todos los registros de la tabla. Si se requiere eliminar un
+          registro deberá especificarse con la instrucción WHERE:</p>
+        <p class="query">
+          <code> DELETE FROM productos WHERE nm_prod = 'Ibuprofeno'; </code>
+        </p>
+      </section>
+      <section class="main-section" id="Clave_primaria_y_clave_foranea">
+        <header class="title-section">Clave primaria y clave foranea</header>
+        <h3>Clave primaria</h3>
+        <p>Una clave primaria es un campo (o varios) que identifica un solo registro (fila) en una tabla. Los valores de
+          ese campo no se repiten ni pueden ser nulos, por tanto, es posible identificar un registro a través de dicho
+          campo.</p>
+        <p> Por ejemplo, si tenemos una tabla con datos de clientes, el número de identificación puede establecerse como
+          clave primaria, visto que es un valor que no se repite, pudiendo haber coincidencias en tros campos como
+          nombre, edad, ingreso, entre otros. </p>
+        <p> Al momento de creación de la tabla, establecemos que un campo sea clave primaria de la siguiente forma:</p>
+        <p class="query">
+          <code> CREATE TABLE empleados ( <br> id INT PRIMARY KEY, <br>
+            nombre VARCHAR(40), <br>
+            apellido VARCHAR(40),<br>
+            num_identificacion INT, <br>
+            telefono VARCHAR(20) <br> ); </code>
+        </p>
+        <h3>Campo con autoincremento</h3>
+        <p>Un campo de tipo entero puede tener el atributo 'AUTO_INCREMENT'. Los valores de un campo 'AUTO_INCREMENT',
+          se inician en 1 y se incrementan en 1 de forma automáticamente, con la creación de un nuevo registro.
+          Por lo general, es utilizado para generar valores únicos para cada nuevo registro que se inserta en una tabla.
+          Sólo puede haber un campo "AUTO_INCREMENT" y debe ser clave primaria. La forma de definir un campo con el
+          atributo 'AUTO_INCREMENT' es la siguiente: </p>
+        <p class="query">
+          <code> CREATE TABLE empleados ( <br> id AUTO_INCREMENT INT PRIMARY KEY, <br>
+            nombre VARCHAR(40), <br>
+            apellido VARCHAR(40),<br>
+            num_identificacion INT, <br>
+            telefono VARCHAR(20) <br> ); </code>
+        </p>
+        <h3>Clave foránea</h3>
+        <p>Las claves foráneas son referencias a registros de otras tablas estableciendo una relación entre ellas. La
+          clave foránea apunta siempre a la clave primaria de la tabla a la cual hace referencia.</p>
+        <p>A los efectos de ilustrar el uso de un campo definido como clave foránea, crearemos la tabla sucursales:</p>
+        <p class="query">
+          <code>CREATE TABLE sucursales ( <br> id INT AUTO_INCREMENT PRIMARY KEY, <br>
+            nombre VARCHAR(40), <br>
+            direccion VARCHAR(50), <br>
+            telefono VARCHAR (20) <br>
+            );</code>
+        </p>
+        <p>Crearemos la tabla empledados donde asociamos a cada empleado a una sucursal</p>
+        <p class="query">
+          <code> CREATE TABLE empleados ( <br> id INT PRIMARY KEY, <br>
+          nombre VARCHAR(40), <br>
+          apellido VARCHAR(40),<br>
+          num_identificacion INT, <br>
+          telefono VARCHAR(20), <br>
+          id_sucursal INT, <br>
+          FOREIGN KEY (id_sucursal) REFERENCES sucursales(id) <br> ); </code>
+        </p>
+      </section>
+      <section class="main-section" id="Columnas_calculadas">
+        <header class="title-section">Columnas calculadas</header>
+        <p>Es posible obtener salidas en las cuales una columna sea el resultado de un cálculo y no un campo de una
+          tabla. Por ejemplo, creamos tabla inventario:</p>
+        <p class="query">
+          <code> CREATE TABLE inventario ( <br> id INT PRIMARY KEY, <br>
+            nombre VARCHAR(40), <br>
+            precio FLOAT,<br>
+            cantidad INT, <br>
+            fecha_vencimiento DATE <br>
+            ); </code>
+        </p>
+        <p>Ahora, luego de ingresar datos a dicha tabla, suponga que para cada producto se requiere conocer el monto que
+          se obtendría al vender la totalidad de cada producto al precio fijado, obtenido por la multiplación de la
+          cantidad por el precio. Esto puede obtenerse de la siguiente forma:</p>
+        </p>
+        <p class="query">
+          <code> SELECT id, nombre, precio ,cantidad, precio*cantidad FROM inventario ; </code>
+        </p>
+      </section>
+      <section class="main-section" id="Clausula_ORDER_del_SELECT">
+        <header class="title-section">Clausula ORDER del SELECT</header>
+        <p>Podemos ordenar el resultado de un "SELECT" para que los registros se muestren ordenados por algún campo,
+          para ello usamos la cláusula "ORDER". Por ejemplo, recuperamos los registros de la tabla inventario ordenados
+          por el nombre:</p>
+        <p class="query">
+          <code> SELECT id, nombre, precio,cantidad FROM inventario ORDER BY nombre ; </code>
+        </p>
+        <p>El resultado es una tabla con los campos especificados, de la tabla inventario, ordenados por el nombre del
+          producto. Por defecto, los ordena de manera ascendente, pero podemos ordenarlos de forma descendente, con el
+          uso de la palabra clave "DESC" </p>
+        <p class="query">
+          <code> SELECT id, nombre, precio,cantidad FROM inventario ORDER BY nombre  DESC; </code>
+        </p>
+      </section>
+      <section class="main-section" id="Operadores_logicos_y_relacionales">
+        <header class="title-section">Operadores logicos y relacionales</header>
+        <p>Los operadores lógicos se usan para combinar condiciones. Por ejemplo, requerimos recuperar los registros de la tabla inventarios que cumplan dos condiciones: el nombre sea igual a protector y la cantidad sea mayor o igual a 100 </p>
+        <p class="query">
+          <code> SELECT * inventario WHERE nombre = 'protector' AND cantidad >= 100; </code>
+        </p>
+      </section>
+    </div>
+
+
   </main>
 
 
